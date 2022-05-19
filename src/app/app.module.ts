@@ -15,6 +15,15 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { IngresoEgresoComponent } from './ingreso-egreso/ingreso-egreso.component';
 
+// FORMS
+import { ReactiveFormsModule } from '@angular/forms';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +37,16 @@ import { IngresoEgresoComponent } from './ingreso-egreso/ingreso-egreso.componen
     NavbarComponent,
     SidebarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

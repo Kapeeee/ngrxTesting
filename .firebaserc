@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ingreso-egreso-app-f740f": {
+      "hosting": {
+        "software": [
+          "ingreso-egreso-app-f740f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ingreso-egreso-app-f740f"
+  }
+}
