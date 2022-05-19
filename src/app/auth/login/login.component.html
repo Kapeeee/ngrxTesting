@@ -27,9 +27,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" *ngIf="!cargando">
                             <button [disabled]="loginForm.invalid" class="btn btn-primary submit-btn btn-block" submit>
                 Login
+              </button>
+                            <button *ngIf="cargando" [disabled]="true" class="btn btn-primary submit-btn btn-block" submit>
+                espere...
+                <i class="fa fa-spin fa-sync"></i>
               </button>
                         </div>
 
